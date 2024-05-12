@@ -1,18 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
     Rigidbody rb;
     Animator anim;
-    public float jumpForce = 2f;
+    public float jumpForce = 1f;
     private float hInputAxis;
     private float vInputAxis;
     public float speed = 5f;
     public LayerMask groundLayer;
-    public float groundCheckDistance = 0.1f;
-    private bool isGrounded;
+    public int Hp;
 
 
     Vector3 moveVec;
@@ -21,6 +22,7 @@ public class Player : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
+        Hp = 100;
     }
 
 
@@ -28,6 +30,7 @@ public class Player : MonoBehaviour
     {
         MoveInputAxis();
         Jump();
+        PlayerHp();
 
     }
 
@@ -49,6 +52,17 @@ public class Player : MonoBehaviour
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
 
+    }
+
+    void PlayerHp()
+    {
+        if (Hp == 0)
+        {
+            print("플레이어가 사망 했습니다.");
+            // Die();
+
+            gameObject.SetActive(false);
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
