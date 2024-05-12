@@ -32,7 +32,8 @@ public class Player : MonoBehaviour
         vInputAxis = Input.GetAxisRaw("Vertical");
         moveVec = new Vector3(hInputAxis,0, vInputAxis).normalized;
         transform.position += moveVec * speed * Time.deltaTime;
-        anim.SetBool("isRun",moveVec != Vector3.zero);
         transform.LookAt(transform.position + moveVec);
+
+        anim.SetBool("isRun", moveVec != Vector3.zero);
     }
 }
