@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
 {
     Rigidbody rb;
     Animator anim;
-    public float jumpForce = 1f;
+    public float jumpForce = 0.5f;
     private float hInputAxis;
     private float vInputAxis;
     public float speed = 5f;
@@ -58,7 +58,7 @@ public class Player : MonoBehaviour
     {
         if (Hp == 0)
         {
-            print("ÇÃ·¹ÀÌ¾î°¡ »ç¸Á Çß½À´Ï´Ù.");
+            print("í”Œë ˆì´ì–´ê°€ ì‚¬ë§ í–ˆìŠµë‹ˆë‹¤.");
             // Die();
 
             gameObject.SetActive(false);
