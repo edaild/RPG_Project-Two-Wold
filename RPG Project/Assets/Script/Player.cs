@@ -77,7 +77,7 @@ public class Player : MonoBehaviour
     {
         if (Hp == 0)
         {
-            print("ÇÃ·¹ÀÌ¾î°¡ »ç¸Á Çß½À´Ï´Ù.");
+            print("í”Œë ˆì´ì–´ê°€ ì‚¬ë§ í–ˆìŠµë‹ˆë‹¤.");
             // Die();
 
             gameObject.SetActive(false);
