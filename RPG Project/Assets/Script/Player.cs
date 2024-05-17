@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
 {
     Rigidbody rb;
     Animator anim;
-    public float jumpForce = 1f;
+    public float jumpForce = 0.5f;
     private float hInputAxis;
     private float vInputAxis;
     public float speed = 5f;
@@ -31,7 +31,7 @@ public class Player : MonoBehaviour
         MoveInputAxis();
         Jump();
         PlayerHp();
-
+        attack();
     }
 
     void MoveInputAxis()
@@ -43,6 +43,25 @@ public class Player : MonoBehaviour
         transform.LookAt(transform.position + moveVec);
 
         anim.SetBool("isRun", moveVec != Vector3.zero);
+    }
+
+    void attack()
+    {
+        if (Input.GetMouseButtonDown(0)) 
+        {
+            print("일반 공격 모션");
+        }
+        if (Input.GetKey(KeyCode.E))
+        {
+            print("마법 스킬");
+        }
+
+        if (Input.GetKey(KeyCode.Q))
+        {
+            print("궁극기");
+        }
+
+        
     }
 
     void Jump()
