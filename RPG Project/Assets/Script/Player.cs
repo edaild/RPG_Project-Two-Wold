@@ -3,17 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Unity.VisualScripting;
 
 public class Player : MonoBehaviour
 {
     Rigidbody rb;
     Animator anim;
-    public float jumpForce = 0.5f;
+    public float jumpForce = 5f;
     private float hInputAxis;
     private float vInputAxis;
     public float speed = 5f;
     public LayerMask groundLayer;
     public int Hp;
+    public GameObject Lille;
+    public GameObject LilleText;
+    bool jump_anim;
 
 
     Vector3 moveVec;
@@ -32,6 +36,7 @@ public class Player : MonoBehaviour
         Jump();
         PlayerHp();
         attack();
+        Manager();
     }
 
     void MoveInputAxis()
@@ -64,13 +69,30 @@ public class Player : MonoBehaviour
         
     }
 
-    void Jump()
+    void Jump() // 점프
     {
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetButtonDown("Jump")) // ! 부정문 bool 값만 가능
         {
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            anim.SetTrigger("isJump");
+
+            StartCoroutine(Jump_anim());
         }
 
+    }
+    IEnumerator Jump_anim()
+    {
+        yield return null;
+        while (!jump_anim)
+        {
+            if (anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.2f)
+            {
+                jump_anim = true;
+                rb.velocity = Vector3.zero;
+                rb.AddForce(Vector3.up * 5, ForceMode.Impulse);
+            }
+            yield return null;
+        }
+        yield return null;
     }
 
     void PlayerHp()
@@ -84,13 +106,35 @@ public class Player : MonoBehaviour
         }
     }
 
+    void Manager()
+    {
+        if (Input.GetMouseButton(0))
+        {
+  
+         //   공격 스크립트 false
+            Lille.SetActive(false);
+            LilleText.SetActive(false);
+        }
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Grounded")
         {
-            Jump();
+            jump_anim = false;
+        }
+
+        if(collision.gameObject.tag == "Lille")
+        {
+            print("릴리에와 충돌");
+            Lille.SetActive(true);
+            LilleText.SetActive(true);
+           // gameObject.SetActive(false);
+
         }
     }
+
+  
 
 
 }
