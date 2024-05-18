@@ -129,7 +129,6 @@ public class Player : MonoBehaviour
             print("副府俊客 面倒");
             Lille.SetActive(true);
             LilleText.SetActive(true);
-           // gameObject.SetActive(false);
 
         }
     }
