@@ -77,7 +77,7 @@ public class Player : MonoBehaviour
     {
         if (Hp == 0)
         {
-            print("플레이어가 사망 했습니다.");
+            print("?�레?�어가 ?�망 ?�습?�다.");
             // Die();
 
             gameObject.SetActive(false);
