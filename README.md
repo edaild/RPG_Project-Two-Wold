@@ -8,3 +8,7 @@ RPG_Project20240511
 <h2>NPC</h2><BR>
 
 ![image](https://github.com/edaild/RPG_Project20240511/assets/109999749/cb7ffaae-46d5-4fc3-9ec9-64287ea9215f)
+
+<h2>NPC Conversation</h2><BR>
+
+![image](https://github.com/edaild/RPG_Project20240511/assets/109999749/12207bcb-1f53-4f6f-a15e-32e6ed999358)
