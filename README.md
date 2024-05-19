@@ -1,5 +1,5 @@
-# RPG_Project(Tow Wold 2개의 세계)
-RPG_Project(Tow Wold 2개의 세계)
+# RPG_Project(Tow Wolds 2개의 세계)
+RPG_Project(Tow Wolds 2개의 세계)
 
 <h2>Magic Tree</h2><BR>
 
