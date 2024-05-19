@@ -95,17 +95,6 @@ public class Player : MonoBehaviour
         yield return null;
     }
 
-    void PlayerHp()
-    {
-        if (Hp == 0)
-        {
-            print("플레이어 사망.");
-            // Die();
-
-            gameObject.SetActive(false);
-        }
-    }
-
     void Manager()
     {
         if (Input.GetMouseButton(0))
@@ -114,6 +103,21 @@ public class Player : MonoBehaviour
          //   공격 스크립트 false
             Lille.SetActive(false);
             LilleText.SetActive(false);
+        }
+    }
+
+    void Die()
+    {
+        gameObject.SetActive(false);
+        print("사망");
+    }
+
+    void PlayerHp()
+    {
+        if (Hp == 0)
+        {
+
+            Die();
         }
     }
 
@@ -130,6 +134,18 @@ public class Player : MonoBehaviour
             Lille.SetActive(true);
             LilleText.SetActive(true);
 
+        }
+
+        if(collision.gameObject.tag == "Enemy")
+        {
+            print("Hp -10");
+            Hp -= 10;
+        }
+
+        if(collision.gameObject.tag == "Magic Tree")
+        {
+            print("Hp가 회복 되었습니다.");
+            Hp = 100;
         }
     }
 

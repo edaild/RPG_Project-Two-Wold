@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Grounded
   - Lille
+  - Magic Tree
+  - Enemy
   layers:
   - Default
   - TransparentFX
