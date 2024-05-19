@@ -11,7 +11,7 @@ public class Main : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Space))
         {
-            SceneManager.LoadScene("Game Scenes");
+            SceneManager.LoadScene("Game Scenes_01");
         }
     }
 }

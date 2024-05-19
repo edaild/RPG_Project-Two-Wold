@@ -15,8 +15,10 @@ public class Player : MonoBehaviour
     public float speed = 5f;
     public LayerMask groundLayer;
     public int Hp;
-    public GameObject Lille;
-    public GameObject LilleText;
+    public GameObject lille;
+    public GameObject lilleText;
+    public GameObject masi;
+    public GameObject masiText;
     bool jump_anim;
 
 
@@ -37,6 +39,13 @@ public class Player : MonoBehaviour
         PlayerHp();
         attack();
         Manager();
+        Fotar();
+
+        if (Input.GetKey(KeyCode.M))
+        {
+            SceneManager.LoadScene("Main Scenes");      // Main Scenes 으로 이동 임시 Key
+        }
+
     }
 
     void MoveInputAxis()
@@ -101,8 +110,10 @@ public class Player : MonoBehaviour
         {
   
          //   공격 스크립트 false
-            Lille.SetActive(false);
-            LilleText.SetActive(false);
+             lille.SetActive(false);
+             lilleText.SetActive(false);
+             masi.SetActive(false);
+             masiText.SetActive(false);
         }
     }
 
@@ -121,6 +132,19 @@ public class Player : MonoBehaviour
         }
     }
 
+    void Fotar()
+    {
+        if (Input.GetKey(KeyCode.V))
+        {
+            SceneManager.LoadScene("Game Scenes_01");
+        }
+        if (Input.GetKey(KeyCode.B))
+        {
+            SceneManager.LoadScene("Game Scenes_02");
+        }
+
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Grounded")
@@ -131,12 +155,32 @@ public class Player : MonoBehaviour
         if(collision.gameObject.tag == "Lille")
         {
             print("릴리에와 충돌");
-            Lille.SetActive(true);
-            LilleText.SetActive(true);
+                lille.SetActive(true);
+                lilleText.SetActive(true);
 
         }
 
-        if(collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.tag == "Magi")
+        {
+            print("메이지와 충돌");
+            masi.SetActive(true);
+            masiText.SetActive(true);
+
+        }
+
+        if (collision.gameObject.tag == "Eria Fotar")
+        {
+            SceneManager.LoadScene("Game Scenes_01");
+
+        }
+
+        if (collision.gameObject.tag == "Belfolk Fotar")
+        {
+            SceneManager.LoadScene("Game Scenes_02");
+
+        }
+
+        if (collision.gameObject.tag == "Enemy")
         {
             print("Hp -10");
             Hp -= 10;

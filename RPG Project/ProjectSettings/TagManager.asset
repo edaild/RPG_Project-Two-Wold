@@ -8,6 +8,9 @@ TagManager:
   - Lille
   - Magic Tree
   - Enemy
+  - Magi
+  - Belfolk Fotar
+  - Eria Fotar
   layers:
   - Default
   - TransparentFX
